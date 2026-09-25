@@ -127,3 +127,15 @@ footer{padding:38px 22px calc(42px + env(safe-area-inset-bottom,0px));background
 .map-card-address>span:first-child{flex:0 0 auto;color:var(--accent);font-size:1.1rem}
 @media(max-width:900px){.location-layout{grid-template-columns:1fr;gap:24px}.location-map-card{width:100%;max-width:760px}.map-viewport{aspect-ratio:16/9;min-height:300px}.map-viewport iframe{min-height:300px}}
 @media(max-width:600px){.location-map-card{padding:13px;border-radius:21px}.map-card-head{align-items:flex-start;flex-direction:column;gap:11px;margin-bottom:13px}.map-open{min-height:44px}.map-viewport{aspect-ratio:1.15;min-height:280px;border-radius:15px}.map-viewport iframe{min-height:280px}.map-card-address{font-size:.76rem}}
+
+/* Redes visibles en móviles como una barra compacta */
+@media(max-width:600px){
+  .floating-social{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));flex-direction:row;align-items:center;gap:8px;padding:7px;border:1px solid rgba(41,37,31,.12);border-radius:999px;background:rgba(255,253,249,.94);box-shadow:0 9px 26px rgba(41,37,31,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .social-icon:not(.whatsapp-float){display:flex;width:42px;height:42px}
+  .floating-social .social-icon.whatsapp-float{width:48px;height:48px;border-radius:50%}
+}
+@media(max-width:390px){
+  .floating-social{right:8px;gap:6px;padding:6px}
+  .social-icon:not(.whatsapp-float){width:38px;height:38px}
+  .floating-social .social-icon.whatsapp-float{width:44px;height:44px}
+}
