@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Servicios profesionales y atención personalizada.">
+<meta name="theme-color" content="#34483b">
+<title>Meraki Peluqueria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header>
+  <a class="brand" id="brandName" href="#inicio">Meraki <span>Peluquería</span></a>
+  <nav class="main-nav" aria-label="Navegación principal">
+    <a href="#servicios">Servicios</a>
+    <a href="#productos">Productos</a>
+    <a href="#recomendaciones">Favoritos</a>
+    <a href="#resenas">Reseñas</a>
+    <a href="#ubicacion">Ubicación</a>
+  </nav>
+  <a class="nav-btn" id="navWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+</header>
+
+<!-- ============ HERO ============ -->
+<main id="inicio">
+<div class="hero">
+  <div class="hero-bg"><img src="img/salon-hero.png" alt="Interior del espacio de atención"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="status">
+      <span class="dot"></span> <span id="heroStatus">Abierto ahora</span>
+      &nbsp;·&nbsp; <span class="rating" id="heroRating">★ 4,5</span> <span id="heroReviews">(233)</span>
+    </div>
+    <h1 id="heroTitle">Un espacio para cuidarte</h1>
+    <p id="heroDesc">Peluquería y salón de belleza en el centro de Bogotá.</p>
+    <div class="cta-row">
+      <a class="cta-primary" id="ctaWhatsapp" href="#" target="_blank" rel="noopener">Agendar cita</a>
+      <a class="cta-secondary" id="ctaMaps" href="#" target="_blank" rel="noopener">Cómo llegar</a>
+    </div>
+  </div>
+</div>
+
+<div class="floating-social" id="floatingSocial"></div>
+<div class="form-feedback" id="formFeedback" role="status" aria-live="polite" hidden></div>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="reveal" id="servicios">
+  <div class="wrap">
+    <div class="eyebrow">Servicios</div>
+    <h2>Lo que hacemos mejor</h2>
+    <div class="service-tabs" id="serviceTabs"></div>
+    <div class="service-grid" id="serviceList"></div>
+  </div>
+</section>
+
+<section class="reveal" id="productos">
+  <div class="wrap">
+    <div class="eyebrow">Productos</div>
+    <h2>Nuestros productos</h2>
+    <p class="product-intro">Encuentra tus favoritos para cuidar tu cabello también en casa.</p>
+    <div class="product-grid" id="productList"></div>
+  </div>
+</section>
+<!-- ============ LO MÁS PEDIDO ============ -->
+<section class="alt reveal" id="recomendaciones">
+  <div class="wrap">
+    <div class="eyebrow">Recomendaciones</div>
+    <h2>Lo más pedido</h2>
+    <div class="rec-scroll" id="recList"></div>
+  </div>
+</section>
+
+<!-- ============ RESEÑAS + COMENTARIOS ============ -->
+<section class="reveal" id="resenas">
+  <div class="wrap">
+    <div class="eyebrow">Reseñas</div>
+    <h2>Lo que dicen las clientas</h2>
+    <div class="reviews-list" id="reviewsList"></div>
+    <form class="comment-form" name="comentarios" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Deja tu opinión">
+      <input type="hidden" name="form-name" value="comentarios">
+      <p class="hidden-field"><label>No llenar: <input name="bot-field"></label></p>
+      <div class="form-title">Deja tu comentario</div>
+      <div class="form-sub">Revisamos cada opinión antes de publicarla.</div>
+      <fieldset class="rating-field">
+        <legend>Tu calificación <span class="rating-hint">Elige de 1 a 5 estrellas</span></legend>
+        <div class="star-picker" role="radiogroup" aria-label="Califica tu experiencia de 1 a 5 estrellas">
+          <label class="star-choice"><input class="star-input" type="radio" name="calificacion" value="1" required><span class="star-symbol" aria-hidden="true">★</span><span class="sr-only">1 estrella</span></label>
+          <label class="star-choice"><input class="star-input" type="radio" name="calificacion" value="2" required><span class="star-symbol" aria-hidden="true">★</span><span class="sr-only">2 estrellas</span></label>
+          <label class="star-choice"><input class="star-input" type="radio" name="calificacion" value="3" required><span class="star-symbol" aria-hidden="true">★</span><span class="sr-only">3 estrellas</span></label>
+          <label class="star-choice"><input class="star-input" type="radio" name="calificacion" value="4" required><span class="star-symbol" aria-hidden="true">★</span><span class="sr-only">4 estrellas</span></label>
+          <label class="star-choice"><input class="star-input" type="radio" name="calificacion" value="5" required><span class="star-symbol" aria-hidden="true">★</span><span class="sr-only">5 estrellas</span></label>
+        </div>
+      </fieldset>
+      <label class="sr-only" for="reviewName">Tu nombre</label>
+      <input class="form-input" id="reviewName" type="text" name="nombre" placeholder="Tu nombre" required>
+      <label class="sr-only" for="reviewText">Tu comentario</label>
+      <textarea class="form-input" id="reviewText" name="comentario" rows="3" placeholder="Cuéntanos tu experiencia..." required></textarea>
+      <button class="form-submit" id="reviewSubmit" type="submit">Enviar comentario</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ UBICACIÓN ============ -->
+<section class="alt reveal" id="ubicacion">
+  <div class="wrap">
+    <div class="eyebrow">Visítanos</div>
+    <h2>Dónde encontrarnos</h2>
+    <div class="location-layout">
+      <div class="location-details">
+    <div class="info-row"><div class="info-label">Dirección</div><div class="info-value" id="infoAddress"></div></div>
+    <div class="info-row hours-row">
+      <div class="info-label">Horario de atención</div>
+      <div class="info-value hours-list" id="infoHours"></div>
+    </div>
+    <div class="info-row"><div class="info-label">Teléfono</div><div class="info-value" id="infoPhone"></div></div>
+      </div>
+      <aside class="location-map-card" aria-label="Vista previa de la ubicación">
+        <div class="map-card-head">
+          <div>
+            <div class="map-kicker">UBICACIÓN</div>
+            <h3 class="map-title">Encuéntranos aquí</h3>
+          </div>
+          <a class="map-open" id="mapDirections" href="#" target="_blank" rel="noopener">Cómo llegar <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="map-viewport">
+          <iframe id="locationMap" title="Mapa de Google con la ubicación del negocio" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="map-card-address"><span aria-hidden="true">⌖</span><span id="mapAddress"></span></div>
+      </aside>
+    </div>
+    <div class="visit-card">
+      <div class="visit-symbol" aria-hidden="true">↗</div>
+      <div class="visit-copy">
+        <strong>¿Lista para tu próxima cita?</strong>
+        Escríbenos por WhatsApp y te ayudamos a encontrar el mejor horario.
+      </div>
+      <a class="visit-action" id="visitWhatsapp" href="#" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="footer-brand" id="footerBrand">Meraki Peluquería</div>
+  <div class="footer-note">Gracias por elegirnos. Estamos para atenderte.</div>
+</footer>
+
+<script>
+/* ==========================================================================
+   14. DATOS — CONFIG editable.
+   ========================================================================== */
+const CONFIG = {
+  business:{
+    name:"Meraki Peluquería",
+    tagline:"Un espacio para cuidarte",
+    description:"Peluquería y salón de belleza en el centro de Bogotá. Cortes, color y tratamientos hechos con dedicación.",
+    status:"Abierto ahora", rating:"★ 4,5", reviewCount:"(233)",
+    address:"Cra. 56 #4D-38, Puente Aranda, Bogotá, Cundinamarca",
+    hours:[
+      {day:"Lunes", time:"8:00 a. m. – 9:00 p. m."},
+      {day:"Martes", time:"8:00 a. m. – 9:00 p. m."},
+      {day:"Miércoles", time:"8:00 a. m. – 9:00 p. m."},
+      {day:"Jueves", time:"8:00 a. m. – 9:00 p. m."},
+      {day:"Viernes", time:"8:00 a. m. – 9:00 p. m."},
+      {day:"Sábado", time:"8:00 a. m. – 9:00 p. m."},
+      {day:"Domingo", time:"10:00 a. m. – 7:00 p. m."}
+    ],
+    phoneDisplay:"+57 3233670402", whatsappNumber:"573233670402",
+    whatsappMessage:"Hola! Quiero agendar una cita", mapsQuery:"Meraki Peluqueria"
+  },
+
+  socials:[
+    {platform:"Instagram", url:"https://instagram.com/tunegocio"},
+    {platform:"Facebook",  url:"https://facebook.com/tunegocio"},
+    {platform:"TikTok",    url:"https://tiktok.com/@tunegocio"}
+  ],
+
+  services:[
+    {
+      category:"Uñas",
+      items:[
+        { name:"Manicure clásica", desc:"Limado y esmalte",       price:"$18.000", img:"img/unas/1.png" },
+        { name:"Manicure clásica", desc:"Limado y esmalte",       price:"$18.000", img:"img/unas/1.png" },
+        { name:"Semipermanente",   desc:"Dura 3 semanas",         price:"$28.000", img:"img/unas/2.png" }
+      ]
+    },
+    {
+      category:"Peinados",
+      items:[
+        { name:"Corte clásico",   desc:"Lavado y peinado",        price:"$35.000", img:"img/peinados/1.png" },
+        { name:"Peinado evento",  desc:"Recogido u ondas",        price:"$50.000", img:"img/peinados/2.png" }
+      ]
+    },
+    {
+      category:"Manos y pies",
+      items:[
+        { name:"Pedicure spa",       desc:"Exfoliación e hidratación", price:"$30.000", img:"img/manos-pies/1.png" },
+        { name:"Combo manos/pies",   desc:"Manicure + pedicure",       price:"$42.000", img:"img/manos-pies/2.png" }
+      ]
+    },
+    {
+      category:"Pinturas",
+      items:[
+        { name:"Color completo", desc:"Producto L'Oréal",         price:"$120.000", img:"img/pintura/1.png" },
+        { name:"Balayage",       desc:"Técnica personalizada",    price:"$150.000", img:"img/pintura/2.png" }
+      ]
+    },
+    {
+      category:"Productos",
+      items:[
+        { name:"Shampoo profesional", desc:"Para llevar a casa",        price:"$45.000", img:"img/productos/1.png" },
+        { name:"Tratamiento capilar", desc:"Hidratación intensiva",     price:"$60.000", img:"img/productos/2.png" }
+      ]
+    }
+  ],
+
+  reviews:[
+    {text:"Me gusta que la peluquería tiene un concepto amplio en creatividad.", author:"Cliente verificada · Google"},
+    {text:"Por el manicure y el corte, me obsequiaron la depilación de cejas.", author:"Cliente verificada · Google"}
+  ],
+
+  recommendations:[
+    { name:"Balayage",       blurb:"El más pedido este mes",      img:"img/lo-mas-pedido/1.png" },
+    { name:"Semipermanente", blurb:"Dura hasta 3 semanas",        img:"img/lo-mas-pedido/2.png" },
+    { name:"Peinado evento", blurb:"Ideal para grados y bodas",   img:"img/lo-mas-pedido/3.png" }
+  ]
+};
+
+/* ==========================================================================
+   15. ICONOS — SVG en línea, sin librerías externas
+   ========================================================================== */
+const ICONS = {
+  Instagram:'<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.2c2.9 0 3.3 0 4.4.06 1.2.06 1.9.24 2.4.4a4.9 4.9 0 0 1 1.8 1.15 4.9 4.9 0 0 1 1.15 1.8c.16.5.34 1.2.4 2.4.06 1.1.06 1.5.06 4.4s0 3.3-.06 4.4c-.06 1.2-.24 1.9-.4 2.4a4.9 4.9 0 0 1-1.15 1.8 4.9 4.9 0 0 1-1.8 1.15c-.5.16-1.2.34-2.4.4-1.1.06-1.5.06-4.4.06s-3.3 0-4.4-.06c-1.2-.06-1.9-.24-2.4-.4a4.9 4.9 0 0 1-1.8-1.15 4.9 4.9 0 0 1-1.15-1.8c-.16-.5-.34-1.2-.4-2.4C2.2 15.3 2.2 14.9 2.2 12s0-3.3.06-4.4c.06-1.2.24-1.9.4-2.4a4.9 4.9 0 0 1 1.15-1.8A4.9 4.9 0 0 1 5.6 2.25c.5-.16 1.2-.34 2.4-.4C9.1 2.2 9.5 2.2 12 2.2m0 1.8c-2.85 0-3.2 0-4.3.06-1 .05-1.55.21-1.9.35-.48.19-.82.4-1.18.76-.36.36-.57.7-.76 1.18-.14.35-.3.9-.35 1.9C3.4 9.35 3.4 9.7 3.4 12s0 2.65.06 3.75c.05 1 .21 1.55.35 1.9.19.48.4.82.76 1.18.36.36.7.57 1.18.76.35.14.9.3 1.9.35 1.1.06 1.45.06 4.3.06s3.2 0 4.3-.06c1-.05 1.55-.21 1.9-.35.48-.19.82-.4 1.18-.76.36-.36.57-.7.76-1.18.14-.35.3-.9.35-1.9.06-1.1.06-1.45.06-3.75s0-2.65-.06-3.75c-.05-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.76-1.18 3.1 3.1 0 0 0-1.18-.76c-.35-.14-.9-.3-1.9-.35-1.1-.06-1.45-.06-4.3-.06M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4m5.2-2.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3"/></svg>',
+  Facebook:'<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 3.95v2.25H8v3.1h2.5V21h3Z"/></svg>',
+  TikTok:'<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M16.6 2h-3.1v13.4a2.7 2.7 0 1 1-2-2.6V9.6a5.9 5.9 0 1 0 5.1 5.85v-6.9a7.6 7.6 0 0 0 4.3 1.35V6.8a4.5 4.5 0 0 1-4.3-4.35V2Z"/></svg>',
+  WhatsApp:'<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2m0 1.8a8.2 8.2 0 0 1 6.9 12.6l-.25.4.7 2.5-2.55-.75-.4.25A8.2 8.2 0 1 1 12 3.8m-3.2 4.1c-.2 0-.5.05-.75.35s-1 1-1 2.35 1 2.7 1.15 2.9c.15.2 2 3.1 4.9 4.3 2.4 1 2.4.65 2.85.6.45-.05 1.4-.55 1.6-1.1.2-.55.2-1 .15-1.1-.05-.1-.2-.15-.4-.25s-1.4-.7-1.6-.75c-.2-.1-.35-.15-.5.15-.15.25-.6.75-.7.9-.15.15-.25.15-.45.05-.2-.1-.9-.35-1.7-1.05-.65-.55-1.05-1.25-1.2-1.45-.1-.2 0-.3.1-.4l.3-.35c.1-.1.15-.2.2-.35.1-.15.05-.3 0-.4-.05-.1-.5-1.25-.7-1.7-.2-.45-.35-.4-.5-.4h-.4"/></svg>'
+};
+
+const CAMERA_ICON = '<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M9 3 7.5 5H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9m3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6"/></svg>';
+
+/* Se llama automáticamente cuando una <img> no puede cargar */
+function handleImgError(imgEl){
+  const box = imgEl.parentElement;
+  box.classList.add('no-photo');
+  box.innerHTML = CAMERA_ICON + '<span>Sin foto</span>';
+}
+
+/* Genera el bloque de foto de una tarjeta */
+function photoBox(src, alt){
+  return `<div class="photo-box">
+    <img src="${src}" alt="${alt}" loading="lazy" onerror="handleImgError(this)">
+  </div>`;
+}
+
+const el = (html) => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstElementChild; };
+
+/* ==========================================================================
+   16. RENDERIZADO — vuelca CONFIG en el HTML
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const b = CONFIG.business;
+  const waLink = `https://wa.me/${b.whatsappNumber}?text=${encodeURIComponent(b.whatsappMessage)}`;
+  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.mapsQuery)}`;
+
+  document.title = b.name;
+  const descriptionMeta = document.querySelector('meta[name="description"]');
+  if (descriptionMeta) descriptionMeta.content = b.description;
+  document.getElementById('brandName').innerHTML = b.name.replace(/(\S+)$/, '<span>$1</span>');
+  document.getElementById('navWhatsapp').href = waLink;
+  document.getElementById('visitWhatsapp').href = waLink;
+  document.getElementById('ctaWhatsapp').href = waLink;
+  document.getElementById('ctaMaps').href = mapsLink;
+  document.getElementById('heroStatus').textContent = b.status;
+  document.getElementById('heroRating').textContent = b.rating;
+  document.getElementById('heroReviews').textContent = b.reviewCount;
+  document.getElementById('heroTitle').textContent = b.tagline;
+  document.getElementById('heroDesc').textContent = b.description;
+  document.getElementById('infoAddress').textContent = b.address;
+  const addressQuery = encodeURIComponent(b.address);
+  const mapFrame = document.getElementById("locationMap");
+  mapFrame.src = "https://maps.google.com/maps?q=" + addressQuery + "&z=15&output=embed";
+  mapFrame.title = "Mapa de Google de " + b.name;
+  document.getElementById("mapAddress").textContent = b.address;
+  document.getElementById("mapDirections").href = "https://www.google.com/maps/search/?api=1&query=" + addressQuery;
+  const hoursList = document.getElementById('infoHours');
+  b.hours.forEach(schedule => {
+    const entry = document.createElement("div");
+    entry.className = "hours-entry";
+    const day = document.createElement("span");
+    day.className = "hours-day";
+    day.textContent = schedule.day;
+    const time = document.createElement("span");
+    time.className = "hours-time";
+    time.textContent = schedule.time;
+    entry.append(day, time);
+    hoursList.appendChild(entry);
+  });
+  document.getElementById('infoPhone').textContent = b.phoneDisplay;
+  document.getElementById('footerBrand').textContent = b.name;
+
+  // Redes flotantes (WhatsApp + socials)
+  const floatingSocial = document.getElementById('floatingSocial');
+  floatingSocial.appendChild(el(`<a class="social-icon whatsapp-float" href="${waLink}" target="_blank" rel="noopener" aria-label="WhatsApp">${ICONS.WhatsApp}</a>`));
+  CONFIG.socials.forEach(s => { const socialClass = s.platform.toLowerCase().replace(/[^a-z0-9-]/g, ""); floatingSocial.appendChild(el('<a class="social-icon social-icon-' + socialClass + '" href="' + s.url + '" target="_blank" rel="noopener" aria-label="' + s.platform + '">' + (ICONS[s.platform] || "") + '</a>')); });
+
+// Servicios por categoría (pestañas)
+  const serviceTabs = document.getElementById('serviceTabs');
+  const serviceList = document.getElementById('serviceList');
+  const serviceCategories = CONFIG.services.filter(cat => cat.category !== 'Productos');
+  function renderServices(category){
+    serviceList.innerHTML = '';
+    category.items.forEach(s => serviceList.appendChild(el(
+      '<div class="service-card">' +
+        photoBox(s.img, s.name) +
+        '<div class="service-name">' + s.name + '</div>' +
+        '<div class="service-desc">' + s.desc + '</div>' +
+        '<div class="service-price">' + s.price + '</div>' +
+      '</div>'
+    )));
+  }
+  serviceCategories.forEach((cat, i) => {
+    const btn = el('<button type="button" class="tab-btn' + (i === 0 ? ' active' : '') + '">' + cat.category + '</button>');
+    btn.addEventListener('click', () => {
+      serviceTabs.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      renderServices(cat);
+    });
+    serviceTabs.appendChild(btn);
+  });
+  renderServices(serviceCategories[0]);
+
+  // Productos con compra directa por WhatsApp
+  const productCategory = CONFIG.services.find(cat => cat.category === 'Productos');
+  const productList = document.getElementById('productList');
+  if (productCategory) {
+    productCategory.items.forEach(p => {
+      const message = 'Hola, quiero comprar ' + p.name + ' (' + p.price + '). ¿Me confirmas su disponibilidad?';
+      const productWaLink = 'https://wa.me/' + b.whatsappNumber + '?text=' + encodeURIComponent(message);
+      productList.appendChild(el(
+        '<article class="product-card">' +
+          photoBox(p.img, p.name) +
+          '<div class="product-body">' +
+            '<div class="product-copy">' +
+              '<div class="service-name">' + p.name + '</div>' +
+              '<div class="service-desc">' + p.desc + '</div>' +
+            '</div>' +
+            '<div class="product-price">' + p.price + '</div>' +
+            '<a class="product-buy" href="' + productWaLink + '" target="_blank" rel="noopener" aria-label="Comprar ' + p.name + ' por WhatsApp">Comprar por WhatsApp <span aria-hidden="true">↗</span></a>' +
+          '</div>' +
+        '</article>'
+      ));
+    });
+  }
+
+  // Lo más pedido (recomendaciones)
+  const recList = document.getElementById('recList');
+  CONFIG.recommendations.forEach(r => recList.appendChild(el(
+    `<div class="rec-card">
+      ${photoBox(r.img, r.name)}
+      <div class="rec-name">${r.name}</div>
+      <div class="rec-blurb">${r.blurb}</div>
+    </div>`
+  )));
+
+  // Reseñas
+  const reviewsList = document.getElementById('reviewsList');
+  CONFIG.reviews.forEach(r => {
+    const ratingValue = Number(r.rating);
+    const ratingMarkup = Number.isInteger(ratingValue) && ratingValue >= 1 && ratingValue <= 5
+      ? `<div class="review-stars" role="img" aria-label="${ratingValue} de 5 estrellas"><span aria-hidden="true">${'★'.repeat(ratingValue)}${'☆'.repeat(5 - ratingValue)}</span></div>`
+      : '';
+    reviewsList.appendChild(el(
+      `<div class="quote">${ratingMarkup}<div>"${r.text}"</div><div class="quote-by">— ${r.author}</div></div>`
+    ));
+  });
+
+  // Calificación de 1 a 5 estrellas
+  const commentForm = document.querySelector('.comment-form');
+  const feedback = document.getElementById('formFeedback');
+  const submitButton = document.getElementById('reviewSubmit');
+  const ratingInputs = [...commentForm.querySelectorAll('input[name="calificacion"]')];
+  let feedbackTimer;
+
+  function paintRating(value){
+    commentForm.querySelectorAll('.star-choice').forEach((choice, index) => {
+      choice.classList.toggle('is-active', index < value);
+    });
+  }
+  ratingInputs.forEach(input => input.addEventListener('change', () => paintRating(Number(input.value))));
+
+  function showFeedback(message, isError = false){
+    window.clearTimeout(feedbackTimer);
+    feedback.textContent = message;
+    feedback.classList.toggle('is-error', isError);
+    feedback.hidden = false;
+  }
+
+  function returnToHome(){
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    document.getElementById('inicio').scrollIntoView({behavior:'smooth', block:'start'});
+    feedbackTimer = window.setTimeout(() => { feedback.hidden = true; }, 7500);
+  }
+
+  commentForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!commentForm.reportValidity()) return;
+
+    const isLocalPreview = window.location.protocol === 'file:' ||
+      ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+
+    if (isLocalPreview) {
+      commentForm.reset();
+      paintRating(0);
+      showFeedback('¡Gracias por tu opinión! Esta prueba local no guarda el comentario. Al publicar en Netlify, lo recibirás para revisarlo antes de mostrarlo.');
+      window.setTimeout(returnToHome, 900);
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando…';
+    try {
+      const formData = new FormData(commentForm);
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(formData).toString()
+      });
+      if (!response.ok) throw new Error('La plataforma no confirmó el envío.');
+
+      commentForm.reset();
+      paintRating(0);
+      showFeedback('¡Gracias por tu opinión! La revisaremos antes de publicarla. Volviendo al inicio…');
+      window.setTimeout(returnToHome, 900);
+    } catch (error) {
+      showFeedback('No se pudo enviar tu opinión. Revisa tu conexión e inténtalo de nuevo.', true);
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Enviar comentario';
+    }
+  });
+  /* ========================================================================
+     17. SCROLL REVEAL — IntersectionObserver
+     ======================================================================== */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(sectionEl => observer.observe(sectionEl));
+});
+</script>
+</body>
+</html>
+
