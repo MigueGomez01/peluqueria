@@ -7,7 +7,7 @@ const CONFIG = {
  
 business:{
  
-name:"Meraki Peluquería",
+name:"Tu negocio",
  
 tagline:"Tu mejor versión comienza aquí",
  
@@ -17,7 +17,7 @@ whatsappNumber:"573233670402",
  
 whatsappMessage:"Hola, quiero agendar una cita.",
  
-mapsQuery:"Meraki Peluqueria Bogota"
+mapsQuery:"Tu Negocio"
  
 },
  
